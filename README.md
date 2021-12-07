@@ -9,6 +9,8 @@ License: MIT
 ```
 ### KNOWN ISSUES (Will fix soon):
 FIXED ~~not supporting spaces in file names~~
+FIXED ~~PSUTIL failing to enumerate processes for PID~~
+FIXED ~~Not flagging error on 32-bit Python~~
 1. Steam version is currently unsupported. DOWNLOADING STEAM VERSION NOW TO ADD SUPPORT
 
 ### What is this for?:
@@ -23,7 +25,7 @@ Geometrize breaks the images down into shapes and can export a `.json` data file
 
 ## Requirements
 - Geometrize (https://www.geometrize.co.uk/)
-- python 3.9 or later (eariler versions may work but untested)
+- python 3.9 64-bit (eariler versions may work but untested)
 - The below python packages (just install from the command line):
 ```
 pip install psutil
