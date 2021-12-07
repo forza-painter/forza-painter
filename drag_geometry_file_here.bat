@@ -15,3 +15,4 @@ set /p ARG1="Geometrize JSON file: "
 :Dragged
 rem Optionally use `call activate myAnacondaEnvironment` here
 @python main.py "%ARG1%"
+pause
