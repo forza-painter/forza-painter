@@ -8,14 +8,10 @@ Unofficially (most versions should work)
 License: MIT
 ```
 ### KNOWN ISSUES (Will fix soon):
-1. The Geometrize `.json` file you are dragging on cannot be in a folder path with spaces in it.
-    ```
-    e.g. this will not work:
-    C:\Users\Some User With Spaces\Documents\my geometry file.json
-    put it somewhere like:
-    C:\Geometrize\myGeometryFile.json
-    ```
-2. Steam version is currently unsupported.
+FIXED ~~not supporting spaces in file names~~
+FIXED ~~PSUTIL failing to enumerate processes for PID~~
+FIXED ~~Not flagging error on 32-bit Python~~
+1. Steam version is currently unsupported. DOWNLOADING STEAM VERSION NOW TO ADD SUPPORT
 
 ### What is this for?:
 Image → Geometrize → Forza Horizon 5 (Vinyl Group)
@@ -29,7 +25,7 @@ Geometrize breaks the images down into shapes and can export a `.json` data file
 
 ## Requirements
 - Geometrize (https://www.geometrize.co.uk/)
-- python 3.9 or later (eariler versions may work but untested)
+- python 3.9 64-bit (eariler versions may work but untested)
 - The below python packages (just install from the command line):
 ```
 pip install psutil
