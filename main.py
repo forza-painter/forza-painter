@@ -141,7 +141,7 @@ def main(args):
         preview = cv2.ellipse(preview, (shape.x, shape.y), (shape.h,shape.w), -90 + shape.rot_deg, 0., 360, (shape.color.b, shape.color.g, shape.color.r), thickness=-1)
     
     # show our preview before putting it in forza
-    print("Here is a preview of your image, press any key to start!")
+    print("Here is a preview of your image, click it then press any key to start!")
     show_image(preview)
     cv2.imwrite("preview.png", preview)
     
