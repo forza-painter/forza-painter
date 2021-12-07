@@ -6,6 +6,12 @@ rem License: MIT
 rem Year: 2021
 
 echo off
+setlocal EnableDelayedExpansion
+
 cd /d "%~dp0"
+set "ARG1=%~1"
+IF NOT "%ARG1%" == "" GOTO Dragged
+set /p ARG1="Geometrize JSON file: "
+:Dragged
 rem Optionally use `call activate myAnacondaEnvironment` here
-@python main.py "%~f1"
+@python main.py "%ARG1%"

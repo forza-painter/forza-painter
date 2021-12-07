@@ -10,6 +10,7 @@ from ctypes import wintypes
 from numpy import longlong
 import win32process
 import sys
+import struct
 
 ERROR_PARTIAL_COPY = 0x012B
 PROCESS_VM_READ = 0x0010
@@ -49,6 +50,9 @@ kernel32.WriteProcessMemory.argtypes = (
     PSIZE_T)          # _Out_ lpNumberOfBytesWritten
 
 kernel32.CloseHandle.argtypes = (wintypes.HANDLE,)
+
+def is_64bit():
+    return struct.calcsize("P") == 8
 
 def get_base_address(pid):
     hProcess = kernel32.OpenProcess(PROCESS_ALL_ACCESS, False, pid)

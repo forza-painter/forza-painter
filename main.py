@@ -31,8 +31,11 @@ def show_image(image):
 
 def get_pid():
     for proc in psutil.process_iter():
-        if "ForzaHorizon5.exe" in proc.name():
-            return proc.pid
+        try:
+            if "ForzaHorizon5.exe" in proc.name():
+                return proc.pid
+        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+            pass
     print("ForzaHorizon5.exe is not running")
     return -1
 
@@ -42,23 +45,26 @@ def calculate_CLivery(pid):
     #[[[<ForzaHorizon5.exe>+08FA47B0]+A58]+8]
     #CLiveryClass RTTI 7FF6DC4B0BA0 <- 3.414.967.0
     #[[[<ForzaHorizon5.exe>+08CA7700]+A58]+8]
-    addrA = dereference_pointer(pid, base_addr + 0x08FA47B0)
-    if addrA == 0:
-        addrA = dereference_pointer(pid, base_addr + 0x08CA7700)
-    if addrA == 0:
-        print("Unexpected version, attempting to scan for address:")
-        start_address = base_addr + 0x08000000
-        preAddrA = scan_block(pid, start_address, 0x01000000, b'\x12\x47\x9B\x13\x29\xD9\xA2\xB1')
-        if preAddrA == -1:
-            print("Unsupported version and cannot find matching pattern.")
-            print("Create an issue on the Github repo...")
-            return -1
+
+    # Commented this out as it should be unnecessary
+    # addrA = dereference_pointer(pid, base_addr + 0x08FA47B0)
+    # if addrA == 0:
+    #     addrA = dereference_pointer(pid, base_addr + 0x08CA7700)
+    # if addrA == 0:
+
+    print("Attempting to scan for address:")
+    start_address = base_addr + 0x08000000
+    preAddrA = scan_block(pid, start_address, 0x01000000, b'\x12\x47\x9B\x13\x29\xD9\xA2\xB1')
+    if preAddrA == -1:
+        print("Unsupported version and cannot find matching pattern.")
+        print("Create an issue on the Github repo...")
+        return -1
+    print("{0:x}".format(preAddrA))
+    preAddrA += start_address
+    if read_long(pid, preAddrA) == read_long(pid, preAddrA + 0x70):
         print("{0:x}".format(preAddrA))
-        preAddrA += start_address
-        if read_long(pid, preAddrA) == read_long(pid, preAddrA + 0x70):
-            print("{0:x}".format(preAddrA))
-            addrA = dereference_pointer(pid, preAddrA + 0xB8)
-            print("Found at Base+{0:x}".format(preAddrA + 0xB8 - base_addr))
+        addrA = dereference_pointer(pid, preAddrA + 0xB8)
+        print("Found at Base+{0:x}".format(preAddrA + 0xB8 - base_addr))
     addrB = dereference_pointer(pid, addrA + 0xA58)
     if addrB == 0:
         print("Create Vinyl Group menu not detected")
@@ -84,6 +90,9 @@ def draw_memory_shape(pid: int, shape: Shape, index: int, cLiveryLayerTable: int
     write_process_memory(pid, current_layer_address + 0x74, color_data)
 
 def main(args):
+    if not is_64bit():
+        print("Your Python version is 32-bit. Please install 64-bit Python.\nThis is required for IPC with Forza Horizon as it is 64-bit.")
+        return
     if len(args) == 1:
         print("You must pass in a Geometrize exported .json file as an argument!")
         return
