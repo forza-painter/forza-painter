@@ -9,7 +9,7 @@ License: MIT
 ```
 ### KNOWN ISSUES (Will fix soon):
 FIXED ~~not supporting spaces in file names~~
-1. Steam version is currently unsupported. ETA tomorrow
+1. Steam version is currently unsupported. DOWNLOADING STEAM VERSION NOW TO ADD SUPPORT
 
 ### What is this for?:
 Image → Geometrize → Forza Horizon 5 (Vinyl Group)
