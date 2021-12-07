@@ -7,6 +7,15 @@ Offically (v1.405.2.0, v3.414.967.0)
 Unofficially (most versions should work)
 License: MIT
 ```
+### KNOWN ISSUES (Will fix soon):
+1. The Geometrize `.json` file you are dragging on cannot be in a folder path with spaces in it.
+    ```
+    e.g. this will not work:
+    C:\Users\Some User With Spaces\Documents\my geometry file.json
+    put it somewhere like:
+    C:\Geometrize\myGeometryFile.json
+    ```
+2. Steam version is currently unsupported.
 
 ### What is this for?:
 Image → Geometrize → Forza Horizon 5 (Vinyl Group)
