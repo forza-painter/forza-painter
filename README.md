@@ -82,7 +82,7 @@ Just throw me [A-Dawg#0001 (AE)] a little credit.
 ```
 - **My issue is not listed**
 ```
-Feel free to create an issue of contact me on Discord A-Dawg#0001
+Feel free to create an issue or contact me on Discord A-Dawg#0001
 ```
 
 ## Making your template Vinyl Groups (reuse these)
