@@ -8,14 +8,13 @@ Unofficially (most versions should work)
 License: MIT
 ```
 ### KNOWN ISSUES (None right now!):
-FIXED ~~not supporting spaces in file names~~
-FIXED ~~PSUTIL failing to enumerate processes for PID~~
-FIXED ~~Not flagging error on 32-bit Python~~
-FIXED ~~Steam version is currently unsupported~~
 Please contact me on Discord `A-Dawg#0001` if you have issues.
 
 ### What is this for?:
 Image → Geometrize → Forza Horizon 5 (Vinyl Group)
+
+### Does this work for the Steam version or the Microsoft Store version?
+It now supports both! And it should work for older and future releases too thanks to pattern scanning.
 
 ### How does it work?:
 Geometrize breaks the images down into shapes and can export a `.json` data file.
@@ -40,14 +39,21 @@ pip install opencv-python
 To preface this:
 I take no responsibility for your use of this software.
 
-You may be reported by players if you share the vinyls as they are extremely detailed.
-Some players feel that making vinyl groups in this way is unfair as they have had to suffer through learning the tool and were not able to use an easy starting point.
+You may be reported by players if you share the vinyls as they are extremely
+detailed. Some players feel that making vinyl groups in this way is unfair as
+they have had to suffer through learning the tool and were not able to use an
+easy starting point.
 
-This is a completely valid opinion, and with enough time, practice and talent you CAN recreate extremely complex images. I just don't share the opinion that you should have to.
+This is a completely valid opinion, and with enough time, practice and talent
+you CAN recreate extremely complex images. I just don't share the opinion that
+you should have to.
 
-As for FH5 detecting this; It is not a "cheat", it is not giving any player an unfair advantage, it is not modifying game files or game code, and it is not taking advantage of any exploits.
+As for FH5 detecting this; It is not a "cheat", it is not giving any player
+an unfair advantage, it is not modifying game files or game code, and it is
+not taking advantage of any exploits.
 
-Interpret that as you feel. I believe this is a missing necessary feature from the vinyl group designer.
+Interpret that as you feel. I believe this is a missing necessary feature
+from the vinyl group designer.
 ```
 - **My version is older/newer or it isn't working following the steps!**
 ```
@@ -57,12 +63,14 @@ Most versions should work fine, but others may need tweaking.
 ```
 - **Will you update this to support newer versions?**
 ```
-It should automatically support newer versions providing the memory structures remain similar. In the event of it failing on a new version I will revise the code.
+It should automatically support newer versions providing the memory structures remain similar.
+In the event of it failing on a new version I will revise the code.
 ```
-- **It's just closing without saying anything!**
+- **I have an error that I don't understand...**
 ```
 Check the requirements above.
-Ensure you have python 3.9 or later installed by running `python` from the command prompt and that you have installed the python packages.
+Ensure you have python 3.9 or later installed (make sure it is 64-bit) by running
+`python` from the command prompt and that you have installed the python packages.
 If you can't manage this, I probably can't help you.
 If you are still having problems, contact me on Discord if you wish.
 ```
@@ -74,9 +82,8 @@ Just throw me [A-Dawg#0001 (AE)] a little credit.
 ```
 - **My issue is not listed**
 ```
-Feel free to create an issue of contact me on Discord A-Dawg#0001
+Feel free to create an issue or contact me on Discord A-Dawg#0001
 ```
-
 
 ## Making your template Vinyl Groups (reuse these)
 - Open Forza Horizon 5 and create a new Vinyl Group.
