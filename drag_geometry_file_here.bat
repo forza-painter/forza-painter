@@ -1,6 +1,6 @@
 rem Discord: A-Dawg#0001 (AE)
 rem Supports: Forza Horizon 5
-rem Offically (v1.405.2.0, v3.414.967.0)
+rem Offically (OTHER v1.405.2.0, MS STORE v3.414.967.0, STEAM v1.414.967.0)
 rem Unofficially (most versions should work)
 rem License: MIT
 rem Year: 2021

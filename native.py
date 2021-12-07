@@ -1,6 +1,6 @@
 # Discord: A-Dawg#0001 (AE)
 # Supports: Forza Horizon 5
-# Offically (v1.405.2.0, v3.414.967.0)
+# Offically (OTHER v1.405.2.0, MS STORE v3.414.967.0, STEAM v1.414.967.0)
 # Unofficially (most versions should work)
 # License: MIT
 # Year: 2021

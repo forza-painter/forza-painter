@@ -1,6 +1,6 @@
 # Discord: A-Dawg#0001 (AE)
 # Supports: Forza Horizon 5
-# Offically (v1.405.2.0, v3.414.967.0)
+# Offically (OTHER v1.405.2.0, MS STORE v3.414.967.0, STEAM v1.414.967.0)
 # Unofficially (most versions should work)
 # License: MIT
 # Year: 2021
@@ -41,20 +41,9 @@ def get_pid():
 
 def calculate_CLivery(pid):
     base_addr = get_base_address(pid)
-    #CLiveryClass RTTI 7FF60D4EB5C0 <- 1.405.2.0
-    #[[[<ForzaHorizon5.exe>+08FA47B0]+A58]+8]
-    #CLiveryClass RTTI 7FF6DC4B0BA0 <- 3.414.967.0
-    #[[[<ForzaHorizon5.exe>+08CA7700]+A58]+8]
-
-    # Commented this out as it should be unnecessary
-    # addrA = dereference_pointer(pid, base_addr + 0x08FA47B0)
-    # if addrA == 0:
-    #     addrA = dereference_pointer(pid, base_addr + 0x08CA7700)
-    # if addrA == 0:
-
     print("Attempting to scan for address:")
     start_address = base_addr + 0x08000000
-    preAddrA = scan_block(pid, start_address, 0x01000000, b'\x12\x47\x9B\x13\x29\xD9\xA2\xB1')
+    preAddrA = scan_block(pid, start_address, 0x02000000, b'\x12\x47\x9B\x13\x29\xD9\xA2\xB1')
     if preAddrA == -1:
         print("Unsupported version and cannot find matching pattern.")
         print("Create an issue on the Github repo...")
