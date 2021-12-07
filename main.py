@@ -16,6 +16,7 @@ import struct
 from native import *
 from internal_classes import *
 import colorsys
+import os
 
 def is_admin():
     try:
@@ -83,10 +84,16 @@ def draw_memory_shape(pid: int, shape: Shape, index: int, cLiveryLayerTable: int
     write_process_memory(pid, current_layer_address + 0x74, color_data)
 
 def main(args):
-    if not len(args) == 2 and args[1].split('.')[-1] == "json":
+    if len(args) == 1:
+        print("You must pass in a Geometrize exported .json file as an argument!")
+        return
+    path = " ".join(args[1:])
+    if not os.path.isfile(path):
+        print("{} is not a valid file path!".format(path))
+    if path.split('.')[-1].lower() != "json":
         print("Expected 1 file as the only argument.\nAn exported json geometry file from the Geometrize application.")
         return
-    with open(args[1]) as f:
+    with open(path) as f:
         # load our json
         try:
             data = json.load(f)

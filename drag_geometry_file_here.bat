@@ -8,4 +8,4 @@ rem Year: 2021
 echo off
 cd /d "%~dp0"
 rem Optionally use `call activate myAnacondaEnvironment` here
-@python main.py %~f1
+@python main.py "%~f1"
