@@ -71,12 +71,21 @@ def draw_memory_shape(pid: int, shape: Shape, index: int, cLiveryLayerTable: int
     print("{0:x}".format(current_layer_address))
     pos_data = struct.pack('f', shape.x) + struct.pack('f', -shape.y)
     write_process_memory(pid, current_layer_address + 0x18, pos_data)
-    scale_data = struct.pack('f', shape.w / 63) + struct.pack('f', shape.h / 63)
+    scale_divisor = 63 if shape.type_id == 16 else 127
+    scale_data = struct.pack('f', shape.w / scale_divisor) + struct.pack('f', shape.h / scale_divisor)
     write_process_memory(pid, current_layer_address + 0x28, scale_data)
     rot_data = struct.pack('f', 360 - shape.rot_deg)
     write_process_memory(pid, current_layer_address + 0x50, rot_data)
     color_data = shape.color.get_struct()
     write_process_memory(pid, current_layer_address + 0x74, color_data)
+    if shape.type_id == 16:
+        shape_id_data = struct.pack('B', 102)
+        write_process_memory(pid, current_layer_address + 0x7A, shape_id_data)
+    elif shape.type_id == 1:
+        shape_id_data = struct.pack('B', 101)
+        write_process_memory(pid, current_layer_address + 0x7A, shape_id_data)
+    mask_flag = struct.pack('B', 1 if shape.is_mask else 0)
+    write_process_memory(pid, current_layer_address + 0x78, mask_flag)
 
 def main(args):
     if not is_64bit():
@@ -116,7 +125,7 @@ def main(args):
     bg_r, bg_g, bg_b, bg_a = data['shapes'][0]['color']
     shapes = []
     # Add the background color
-    shapes.append(Shape(16, int(image_w//2), int(image_h//2), image_w, image_h, 0, Color(bg_r,bg_g,bg_b,bg_a)))
+    shapes.append(Shape(1, int(image_w//2), int(image_h//2), image_w, image_h, 0, Color(bg_r,bg_g,bg_b,bg_a), False))
     for shape in data['shapes'][1:]:
         #shape.color = [r,g,b,a]
         #shape.data = [x,y,w,h,rot_deg]
@@ -125,7 +134,7 @@ def main(args):
             # Rotated ellipsis
             x,y,w,h,rot_deg = shape['data']
             r,g,b,a = shape['color']
-            shapes.append(Shape(shape['type'], x, y, w, h, rot_deg, Color(r,g,b,a)))
+            shapes.append(Shape(shape['type'], x, y, w, h, rot_deg, Color(r,g,b,a), False))
         else:
             # Not handling other shapes currently
             print("Unsupported shape in geometry file.\nCurrently only supporting rotated ellipsis.")
@@ -176,12 +185,22 @@ def main(args):
         return
     print("CLiveryLayer table found at {0:x}".format(cLiveryLayerTable))
 
-    # Trim the shapes back to 3000 if necessary
-    if len(shapes) > 3000:
-        shapes = shapes[:3000]
+    # Trim the shapes back to 3000 minus the 4 masking rectangles if necessary
+    if len(shapes) > 2996:
+        shapes = shapes[:2996]
+    
+    # Trim the shapes back to current_livery_count minus the 4 masking rectangles if necessary
+    if len(shapes) > int(current_livery_count - 4):
+        shapes = shapes[:int(current_livery_count-4)]
+
+    # Add the 4 masking rectangles
+    shapes.append(Shape(1, -int(image_w//4), int(image_h//2), int(image_w//2), int(image_h*1.5), 0, Color(0,0,0,255), True))
+    shapes.append(Shape(1, image_w + int(image_w//4), int(image_h//2), int(image_w//2), int(image_h*1.5), 0, Color(0,0,0,255), True))
+    shapes.append(Shape(1, int(image_w//2), -int(image_h//4), image_w + int(image_w), int(image_h//2), 0, Color(0,0,0,255), True))
+    shapes.append(Shape(1, int(image_w//2), image_h + int(image_h//4), image_w + int(image_w), int(image_h//2), 0, Color(0,0,0,255), True))
     
     # Enumerate the shapes, drawing them as we go
-    for i,shape in enumerate(shapes[:current_livery_count]):
+    for i,shape in enumerate(shapes):
         draw_memory_shape(pid, shape, i, cLiveryLayerTable, current_livery_count)
     
     print("DONE!")

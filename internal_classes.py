@@ -31,7 +31,8 @@ class Shape:
     h: int
     rot_deg: int
     color: Color
-    def __init__(self, type_id, x, y, w, h, rot_deg, color: Color):
+    is_mask: bool
+    def __init__(self, type_id, x, y, w, h, rot_deg, color: Color, is_mask):
         self.type_id = type_id
         self.x = x
         self.y = y
@@ -39,3 +40,4 @@ class Shape:
         self.h = h
         self.rot_deg = rot_deg
         self.color = color
+        self.is_mask = is_mask
