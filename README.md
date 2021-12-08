@@ -25,7 +25,7 @@ Geometrize breaks the images down into shapes and can export a `.json` data file
 
 ## Requirements
 - Geometrize (https://www.geometrize.co.uk/)
-- python 3.9 64-bit (eariler versions may work but untested)
+- python 3.9 64-bit (recommend downloading from the Microsoft Store as it automatically adds to PATH)
 - The below python packages (just install from the command line):
 ```
 pip install psutil
