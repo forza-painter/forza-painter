@@ -100,7 +100,7 @@ Note: When you load these templates the shapes will be **grouped**, make sure yo
 
 ## Using Geometrize to generate your `.json` geometry:
 - First **Disable Image Downscaling** in `File → Global Preferences → Performance`
-    - Alternatively, if the process is too slow, you can either enable it, but set the `Max Width/Height`. You will be sacrificing quality for speed though.
+    - Alternatively, if the process is too slow, you can enable it, but set the `Max Width/Height`. You will be sacrificing quality for speed though.
 
 ![](/imgs/001-global-settings.png)
 - Then after loading any image, use the below settings:
