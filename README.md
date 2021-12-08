@@ -107,6 +107,6 @@ Note: When you load these templates the shapes will be **grouped**, make sure yo
 
 ![](/imgs/002-image-settings.png)
 - Wait for the number of shapes you want to target (1000, 3000 or something smaller if you wish).
-- Finally click the `Exporters` tab at the bottom of the panel and select `Save Grometry Data..`
+- Finally click the `Exporters` tab at the bottom of the panel and select `Save Geometry Data`
 
 ![](/imgs/003-exporter-settings.png)
