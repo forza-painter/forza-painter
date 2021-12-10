@@ -7,8 +7,12 @@ Offically (OTHER v1.405.2.0, MS STORE v3.414.967.0, STEAM v1.414.967.0)
 Unofficially (most versions should work)
 License: MIT
 ```
+
+# NEW
+We now include `forza-painter-geometrize`. This is a modified `geometrize-lib` that will support transparent images.
+
 ### KNOWN ISSUES (None right now!):
-Please contact me on Discord `A-Dawg#0001` if you have issues.
+Please ask for help on the discord (https://discord.gg/BJNFCxPKhu) or contact me directly if I'm available `A-Dawg#0001`
 
 ### What is this for?:
 Image → Geometrize → Forza Horizon 5 (Vinyl Group)
@@ -25,7 +29,7 @@ Geometrize breaks the images down into shapes and can export a `.json` data file
 
 ## Requirements
 - Geometrize (https://www.geometrize.co.uk/)
-- python 3.9 64-bit (recommend downloading from the Microsoft Store as it automatically adds to PATH)
+- python 3.9 64-bit (recommend downloading from the **Microsoft Store** as it automatically adds to PATH)
 - The below python packages (just install from the command line):
 ```
 pip install psutil
@@ -84,6 +88,16 @@ Just throw me [A-Dawg#0001 (AE)] a little credit.
 ```
 Feel free to create an issue or contact me on Discord A-Dawg#0001
 ```
+- **It just says: "Press any key to continue"**
+```
+Did an image pop up?
+    Yes - Is it still up?
+            Yes - Click it then press a key
+            No - Make sure you are in the Vinyl Group Editor, not the Livery Editor for example
+    No - You likely don't have python installed properly, INSTALL IT FROM THE MICROSOFT STORE
+```
+
+# Basic usage guide:
 
 ## Making your template Vinyl Groups (reuse these)
 - Open Forza Horizon 5 and create a new Vinyl Group.
@@ -98,7 +112,13 @@ Note: When you load these templates the shapes will be **grouped**, make sure yo
     - e.g. if you load 500 spheres and ungroup, it will only use those 500 spheres
 - Finally, just drag the `.json` geometry onto the `drag_geometry_file_here.bat` batch script, python will do the rest.
 
-## Using Geometrize to generate your `.json` geometry:
+## Using `forza-painter-geometrize`(NEW) to generate your `.json` geometry (For images with transparency):
+- Just drag an image onto `forza-painter-geometrize.exe` and it will start
+- It will generate a `.json` file with the same name and the same folder as the image you dragged in.
+- It will save every 10 shapes, allowing you to drag your `.json` file onto `drag_geometry_file_here.bat` to preview it. (the game does not need to be running)
+- Once you are happy with the amount of shapes (or the quality of the preview) just close the window (as it has saved every 10 shapes already).
+
+## Using Geometrize to generate your `.json` geometry (For images without transparency):
 - First **Disable Image Downscaling** in `File → Global Preferences → Performance`
     - Alternatively, if the process is too slow, you can either enable it, but set the `Max Width/Height`. You will be sacrificing quality for speed though.
 
@@ -110,3 +130,7 @@ Note: When you load these templates the shapes will be **grouped**, make sure yo
 - Finally click the `Exporters` tab at the bottom of the panel and select `Save Grometry Data..`
 
 ![](/imgs/003-exporter-settings.png)
+
+# Acknowledgements
+geometrize-lib - Sam Twidale (https://samcodes.co.uk/)
+Primitive library - Michael Fogleman (https://github.com/fogleman/primitive)

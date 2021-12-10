@@ -108,7 +108,7 @@ def main(args):
             try:
                 valid = len(data['shapes'][0]['data']) == 4
                 print(data['shapes'][0]['type'])
-                valid = valid and data['shapes'][0]['type'] == 1
+                valid = valid and data['shapes'][0]['type'] > 0
                 valid = valid and len(data['shapes'][0]['color']) == 4
                 if not valid:
                     print("Not a valid Geometrize geometry export .json file")
@@ -124,8 +124,11 @@ def main(args):
     image_w, image_h = data['shapes'][0]['data'][2:]
     bg_r, bg_g, bg_b, bg_a = data['shapes'][0]['color']
     shapes = []
-    # Add the background color
-    shapes.append(Shape(1, int(image_w//2), int(image_h//2), image_w, image_h, 0, Color(bg_r,bg_g,bg_b,bg_a), False))
+    
+    # If the exported geometry has a rectangle background, add it
+    if bg_a > 0:
+        shapes.append(Shape(1, int(image_w//2), int(image_h//2), image_w, image_h, 0, Color(bg_r,bg_g,bg_b,bg_a), False))
+
     for shape in data['shapes'][1:]:
         #shape.color = [r,g,b,a]
         #shape.data = [x,y,w,h,rot_deg]
