@@ -9,10 +9,16 @@ License: MIT
 ```
 
 # NEW
-We now include `forza-painter-geometrize`. This is a modified `geometrize-lib` that will support transparent images.
+### We now include `forza-painter-geometrize`. This is a modified `geometrize-lib` that will support transparent images. Please read the guides below!
 
+# Info
 ### KNOWN ISSUES (None right now!):
-Please ask for help on the discord (https://discord.gg/BJNFCxPKhu) or contact me directly if I'm available `A-Dawg#0001`
+Please ask for help on the discord
+- https://discord.gg/BJNFCxPKhu
+
+
+Or contact me directly if I'm available on Discord
+- `A-Dawg#0001`
 
 ### What is this for?:
 Image → Geometrize → Forza Horizon 5 (Vinyl Group)
@@ -22,6 +28,7 @@ It now supports both! And it should work for older and future releases too thank
 
 ### How does it work?:
 Geometrize breaks the images down into shapes and can export a `.json` data file.
+You can now also use `forza-painter-geometrize`(included) to break down transparent images.
 
 `forza-painter` deserializes this `.json` data file and uses some math, reverse engineering and the Windows API to push these shapes into FH5 automagically.
 
@@ -116,6 +123,7 @@ Note: When you load these templates the shapes will be **grouped**, make sure yo
 - Just drag an image onto `forza-painter-geometrize.exe` and it will start
 - It will generate a `.json` file with the same name and the same folder as the image you dragged in.
 - It will save every 10 shapes, allowing you to drag your `.json` file onto `drag_geometry_file_here.bat` to preview it. (the game does not need to be running)
+    - Yes I know this is extremely rough around the edges, but I am going away for the weekend and wanted to get this out lol.  
 - Once you are happy with the amount of shapes (or the quality of the preview) just close the window (as it has saved every 10 shapes already).
 
 ## Using Geometrize to generate your `.json` geometry (For images without transparency):
