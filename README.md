@@ -22,7 +22,7 @@ If you would like, you can contact me directly if I'm available on Discord
 - `A-Dawg#0001`
 
 ### What is this for?:
-Any image → Forza Horizon 5 (Vinyl Group)
+Any image → Forza Horizon 5 Vinyl Group (More versions of Forza coming)
 
 ### Does this work for the Steam version or the Microsoft Store version?
 It supports both! And it should work for older and future releases too thanks to pattern scanning.
