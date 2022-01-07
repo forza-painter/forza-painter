@@ -3,13 +3,14 @@
 ```
 Discord: A-Dawg#0001 (AE)
 Supports: Forza Horizon 5
-Offically (OTHER v1.405.2.0, MS STORE v3.414.967.0, STEAM v1.414.967.0)
-Unofficially (most versions should work)
+Offically: MS Store/XBOX PC App (latest version), Steam (latest version).
+Unofficially: Every version that isn't running on a console of via cloud gaming should work.
 License: MIT
 ```
 
 # NEW
-### We now include `forza-painter-geometrize`. This is a modified `geometrize-lib` that will support transparent images. Please read the guides below!
+### `Geometrize` is no longer needed, see updated guides below!
+### Want to support the tool with money? Donate to charity instead (https://www.charitywatch.org/top-rated-charities)
 
 # Info
 ### KNOWN ISSUES (None right now!):
@@ -17,27 +18,25 @@ Please ask for help on the discord
 - https://discord.gg/BJNFCxPKhu
 
 
-Or contact me directly if I'm available on Discord
+If you would like, you can contact me directly if I'm available on Discord
 - `A-Dawg#0001`
 
 ### What is this for?:
-Image → Geometrize → Forza Horizon 5 (Vinyl Group)
+Any image → Forza Horizon 5 (Vinyl Group)
 
 ### Does this work for the Steam version or the Microsoft Store version?
-It now supports both! And it should work for older and future releases too thanks to pattern scanning.
+It supports both! And it should work for older and future releases too thanks to pattern scanning.
 
 ### How does it work?:
-Geometrize breaks the images down into shapes and can export a `.json` data file.
-You can now also use `forza-painter-geometrize`(included) to break down transparent images.
-
-`forza-painter` deserializes this `.json` data file and uses some math, reverse engineering and the Windows API to push these shapes into FH5 automagically.
+When you drag an image onto `drag_image_file_here.bat`; It will break the image down into shapes and store them in `.json` data files.
+Then you drag those `.json` data files onto `drage_geometry_json_here.bat`; It deserializes this `.json` and uses some math, reverse engineering and the Windows API to push these shapes into FH5 automagically.
 
 # READ EVERYTHING BELOW BEFORE ASKING FOR HELP
 
 ## Requirements
-- Geometrize (https://www.geometrize.co.uk/)
-- python 3.9 64-bit (recommend downloading from the **Microsoft Store** as it automatically adds to PATH)
+- python 3.8 or 3.9 (or later**\***) 64-bit (Make sure to tick `Add to PATH` during installation. Microsoft Store installation does this automatically.)
 - The below python packages (just install from the command line):
+**\****If you are using python 3.10 or later you have to install `psutil` from https://pypi.org/project/psutil-wheels/*
 ```
 pip install psutil
 pip install pywin32
@@ -80,20 +79,19 @@ In the event of it failing on a new version I will revise the code.
 - **I have an error that I don't understand...**
 ```
 Check the requirements above.
-Ensure you have python 3.9 or later installed (make sure it is 64-bit) by running
-`python` from the command prompt and that you have installed the python packages.
-If you can't manage this, I probably can't help you.
-If you are still having problems, contact me on Discord if you wish.
+Ensure you have python 3.8 or later installed (make sure it is 64-bit) by running
+`python` from the command prompt. Check that you have installed the python packages (pip commands at top of readme)
+If you are still having problems, join the discord (top of readme) and ask for help in #support
 ```
 - **Can you make a version that just uses inputs to create the shapes?**
 ```
 I can, but I won't. I've open sourced this for a reason.
-Feel free to take it and make changes as you wish as permitted by the MIT licence.
+Feel free to take it and make changes as you wish as permitted by the MIT license.
 Just throw me [A-Dawg#0001 (AE)] a little credit.
 ```
 - **My issue is not listed**
 ```
-Feel free to create an issue or contact me on Discord A-Dawg#0001
+Join the discord (at top of readme) and ask for help in #support, failing that, contact me on Discord. A-Dawg#0001
 ```
 - **It just says: "Press any key to continue"**
 ```
@@ -101,7 +99,7 @@ Did an image pop up?
     Yes - Is it still up?
             Yes - Click it then press a key
             No - Make sure you are in the Vinyl Group Editor, not the Livery Editor for example
-    No - You likely don't have python installed properly, INSTALL IT FROM THE MICROSOFT STORE
+    No - You likely don't have python installed properly (Make sure to tick `Add to PATH` or just install from Microsoft Store)
 ```
 
 # Basic usage guide:
@@ -109,35 +107,17 @@ Did an image pop up?
 ## Making your template Vinyl Groups (reuse these)
 - Open Forza Horizon 5 and create a new Vinyl Group.
 - Just make one sphere and duplicate it for as many layers as you need. Color, size, scale, etc. **DO NOT MATTER**.
-- Save this as a template as something identifiable e.g. `forza-painter 3000 shapes`.
+    - Tip (Optional): You can make, say, 100 then select an existing shape, select highlight all, copy and insert these 100 over and over.
+    - Tip (Optional): Another trick is to save one vinyl group with 6 groups of 500 spheres. Simply load it and delete the ones you don't want (e.g. to reduce it down to 2000 shapes, delete 2 of them), then ungroup.
+- Save this as a template, as something identifiable, e.g. `forza-painter 3000 shapes`.
 
-Note: When you load these templates the shapes will be **grouped**, make sure you select them and **UNGROUP** before using.
+Note: When you load these templates the shapes will be **grouped**, make sure you select them and **UNGROUP** before using (If you miss one it will tell you).
 
-## Using `forza-painter` to recreate the `.json` file (from Geometrize) in Forza Horizon 5:
-- First generate the `.json` file in Geometrize (see below steps).
-- Open a template with the number of shapes (all spheres) that you desire to represent your geometry (see above steps) then **UNGROUP** it.
-    - e.g. if you load 500 spheres and ungroup, it will only use those 500 spheres
-- Finally, just drag the `.json` geometry onto the `drag_geometry_file_here.bat` batch script, python will do the rest.
-
-## Using `forza-painter-geometrize`(NEW) to generate your `.json` geometry (For images with transparency):
-- Just drag an image onto `forza-painter-geometrize.exe` and it will start
-- It will generate a `.json` file with the same name and the same folder as the image you dragged in.
-- It will save every 10 shapes, allowing you to drag your `.json` file onto `drag_geometry_file_here.bat` to preview it. (the game does not need to be running)
-    - Yes I know this is extremely rough around the edges, but I am going away for the weekend and wanted to get this out lol.  
-- Once you are happy with the amount of shapes (or the quality of the preview) just close the window (as it has saved every 10 shapes already).
-
-## Using Geometrize to generate your `.json` geometry (For images without transparency):
-- First **Disable Image Downscaling** in `File → Global Preferences → Performance`
-    - Alternatively, if the process is too slow, you can enable it, but set the `Max Width/Height`. You will be sacrificing quality for speed though.
-
-![](/imgs/001-global-settings.png)
-- Then after loading any image, use the below settings:
-
-![](/imgs/002-image-settings.png)
-- Wait for the number of shapes you want to target (1000, 3000 or something smaller if you wish).
-- Finally click the `Exporters` tab at the bottom of the panel and select `Save Geometry Data`
-
-![](/imgs/003-exporter-settings.png)
+## Using `forza-painter-geometrize` to generate your `.json` geometry (NEW):
+- Just drag an image onto `drag_image_file_here.bat` and it will start
+- It will generate a `.json` file with the same name and the same folder as the image you dragged in. (most profiles will also save one every 500 shapes separately)
+- You can close the window at any time when you are happy or if the shapes are complete.
+- **Advanced Users:** Consider tweaking the profiles in the `settings` folder and share them with other users.
 
 # Acknowledgements
 geometrize-lib - Sam Twidale (https://samcodes.co.uk/)

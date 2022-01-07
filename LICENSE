@@ -1,7 +1,9 @@
 The MIT License (MIT)
 
-forza-painter-geometrize is a modified geometrize-lib derivative.
-Modified from geometrize-lib, copyright (c) 2021 Sam Twidale (https://samcodes.co.uk/)
+Portions of this code are a geometrize-lib and Primitive library derivative.
+
+forza-painter and forza-painter-geometrize copyright (c) 2021 AE (A-Dawg#0001) (https://github.com/forza-painter/forza-painter)
+Portions of this application are modified geometrize-lib, copyright (c) 2021 Sam Twidale (https://samcodes.co.uk/)
 Originally based on the Primitive library, copyright (c) 2016 Michael Fogleman (https://github.com/fogleman/primitive)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

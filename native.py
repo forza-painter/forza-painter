@@ -1,9 +1,9 @@
 # Discord: A-Dawg#0001 (AE)
 # Supports: Forza Horizon 5
-# Offically (OTHER v1.405.2.0, MS STORE v3.414.967.0, STEAM v1.414.967.0)
-# Unofficially (most versions should work)
+# Offically: MS Store/XBOX PC App (latest version), Steam (latest version).
+# Unofficially: Every version that isn't running on a console of via cloud gaming should work.
 # License: MIT
-# Year: 2021
+# Year: 2022
 
 import ctypes
 from ctypes import wintypes

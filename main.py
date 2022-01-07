@@ -1,9 +1,9 @@
 # Discord: A-Dawg#0001 (AE)
 # Supports: Forza Horizon 5
-# Offically (OTHER v1.405.2.0, MS STORE v3.414.967.0, STEAM v1.414.967.0)
-# Unofficially (most versions should work)
+# Offically: MS Store/XBOX PC App (latest version), Steam (latest version).
+# Unofficially: Every version that isn't running on a console of via cloud gaming should work.
 # License: MIT
-# Year: 2021
+# Year: 2022
 
 import sys
 import json
@@ -13,6 +13,8 @@ import ctypes, sys
 import psutil
 import ctypes
 import struct
+#from geometrize.geometrize import geometrize_image
+#from geometrize.internal_classes import ThreadManager
 from native import *
 from internal_classes import *
 import colorsys
@@ -46,7 +48,7 @@ def calculate_CLivery(pid):
     preAddrA = scan_block(pid, start_address, 0x02000000, b'\x12\x47\x9B\x13\x29\xD9\xA2\xB1')
     if preAddrA == -1:
         print("Unsupported version and cannot find matching pattern.")
-        print("Create an issue on the Github repo...")
+        print("Please post about this in #support on the Discord")
         return -1
     print("{0:x}".format(preAddrA))
     preAddrA += start_address
@@ -66,40 +68,37 @@ def calculate_CLivery(pid):
 
 def draw_memory_shape(pid: int, shape: Shape, index: int, cLiveryLayerTable: int, liveryCount: int):
     if index >= liveryCount:
-        return
+        return True
     current_layer_address = dereference_pointer(pid, cLiveryLayerTable + (index * 0x8))
     print("{0:x}".format(current_layer_address))
     pos_data = struct.pack('f', shape.x) + struct.pack('f', -shape.y)
-    write_process_memory(pid, current_layer_address + 0x18, pos_data)
-    scale_divisor = 63 if shape.type_id == 16 else 127
-    scale_data = struct.pack('f', shape.w / scale_divisor) + struct.pack('f', shape.h / scale_divisor)
-    write_process_memory(pid, current_layer_address + 0x28, scale_data)
-    rot_data = struct.pack('f', 360 - shape.rot_deg)
-    write_process_memory(pid, current_layer_address + 0x50, rot_data)
-    color_data = shape.color.get_struct()
-    write_process_memory(pid, current_layer_address + 0x74, color_data)
-    if shape.type_id == 16:
-        shape_id_data = struct.pack('B', 102)
-        write_process_memory(pid, current_layer_address + 0x7A, shape_id_data)
-    elif shape.type_id == 1:
-        shape_id_data = struct.pack('B', 101)
-        write_process_memory(pid, current_layer_address + 0x7A, shape_id_data)
-    mask_flag = struct.pack('B', 1 if shape.is_mask else 0)
-    write_process_memory(pid, current_layer_address + 0x78, mask_flag)
+    try:
+        write_process_memory(pid, current_layer_address + 0x18, pos_data)
+        scale_divisor = 63 if shape.type_id == 16 else 127
+        scale_data = struct.pack('f', shape.w / scale_divisor) + struct.pack('f', shape.h / scale_divisor)
+        write_process_memory(pid, current_layer_address + 0x28, scale_data)
+        rot_data = struct.pack('f', 360 - shape.rot_deg)
+        write_process_memory(pid, current_layer_address + 0x50, rot_data)
+        color_data = shape.color.get_struct()
+        write_process_memory(pid, current_layer_address + 0x74, color_data)
+        if shape.type_id == 16:
+            shape_id_data = struct.pack('B', 102)
+            write_process_memory(pid, current_layer_address + 0x7A, shape_id_data)
+        elif shape.type_id == 1:
+            shape_id_data = struct.pack('B', 101)
+            write_process_memory(pid, current_layer_address + 0x7A, shape_id_data)
+        mask_flag = struct.pack('B', 1 if shape.is_mask else 0)
+        write_process_memory(pid, current_layer_address + 0x78, mask_flag)
+    except:
+        if index > 0:
+            print("Detected grouped vinyl in slot " + str(index+1))
+        print("ERROR: You probably forgot to ungroup one of your vinyls.")
+        print("Also ensure you are in the Vinyl Group Editor, not applying the vinyl or a livery to the car.")
+        return False
+    return True
+    
 
-def main(args):
-    if not is_64bit():
-        print("Your Python version is 32-bit. Please install 64-bit Python.\nThis is required for IPC with Forza Horizon as it is 64-bit.")
-        return
-    if len(args) == 1:
-        print("You must pass in a Geometrize exported .json file as an argument!")
-        return
-    path = " ".join(args[1:])
-    if not os.path.isfile(path):
-        print("{} is not a valid file path!".format(path))
-    if path.split('.')[-1].lower() != "json":
-        print("Expected 1 file as the only argument.\nAn exported json geometry file from the Geometrize application.")
-        return
+def load_geometry(path):
     with open(path) as f:
         # load our json
         try:
@@ -111,10 +110,10 @@ def main(args):
                 valid = valid and data['shapes'][0]['type'] > 0
                 valid = valid and len(data['shapes'][0]['color']) == 4
                 if not valid:
-                    print("Not a valid Geometrize geometry export .json file")
+                    print("Not a valid generated geometry .json file")
                     return
             except:
-                print("Not a valid Geometrize geometry export .json file")
+                print("Not a valid generated geometry .json file")
                 return
         except:
             print("Not a valid .json file")
@@ -143,7 +142,7 @@ def main(args):
             print("Unsupported shape in geometry file.\nCurrently only supporting rotated ellipsis.")
             return
     if len(shapes) == 0:
-        print("No shapes were loaded. Check your exported Geometrize geometry .json")
+        print("No shapes were loaded. Check your exported geometry .json")
         return
     
     # draw our validated shapes as a preview
@@ -178,7 +177,7 @@ def main(args):
         print("READ THE INSTRUCTIONS")
         print("You must load a vinyl group (ALL SPHERES) with your desired shape count (minimum 100) first!")
         print("500, 1000, 1500, 2000 or 3000 is recommended")
-        print("Make sure to ungroup the vinyl before starting also!")
+        print("Make sure to ungroup the vinyl before starting 1also!")
         return
 
     cLiveryLayerTable = dereference_pointer(pid, cLiveryGroup + 0x78)
@@ -195,7 +194,6 @@ def main(args):
     # Trim the shapes back to current_livery_count minus the 4 masking rectangles if necessary
     if len(shapes) > int(current_livery_count - 4):
         shapes = shapes[:int(current_livery_count-4)]
-
     # Add the 4 masking rectangles
     shapes.append(Shape(1, -int(image_w//4), int(image_h//2), int(image_w//2), int(image_h*1.5), 0, Color(0,0,0,255), True))
     shapes.append(Shape(1, image_w + int(image_w//4), int(image_h//2), int(image_w//2), int(image_h*1.5), 0, Color(0,0,0,255), True))
@@ -204,13 +202,37 @@ def main(args):
     
     # Enumerate the shapes, drawing them as we go
     for i,shape in enumerate(shapes):
-        draw_memory_shape(pid, shape, i, cLiveryLayerTable, current_livery_count)
+        if not draw_memory_shape(pid, shape, i, cLiveryLayerTable, current_livery_count):
+            return
     
     print("DONE!")
 
     # Show the background color as the ideal car color in HSV format
     h,s,v = colorsys.rgb_to_hsv(bg_r / float(255), bg_g / float(255), bg_b / float(255))
     print("The ideal background color for the car is:\n{:.2f},{:.2f},{:.2f}".format(h,s,v))
+
+def main(args):
+    if not is_64bit():
+        print("Your Python version is 32-bit. Please install 64-bit Python.\nThis is required for IPC with Forza Horizon as it is a 64-bit process.")
+        return
+    if len(args) == 1:
+        print("You must drag in a generated geometry .json file!")
+        return
+    path = " ".join(args[1:])
+
+    if not os.path.isfile(path):
+        print("{} is not a valid file path!".format(path))
+    ext = path.split('.')[-1].lower()
+    #accepted_image_formats = ["jpg", "jpeg", "png", "bmp"]
+    is_geometry = ext == "json"
+    if not is_geometry:# and not ext in accepted_image_formats:
+        print("Expected 1 file as the only argument.")
+        print("An image file, or an generated .json geometry file.")
+        return
+    if is_geometry:
+        load_geometry(path)
+    # else:
+    #     geometrize_image(path)
 
 if __name__ == "__main__":
     if is_admin():
@@ -223,6 +245,7 @@ if __name__ == "__main__":
             import traceback
             print(traceback.format_exc())
         finally:
+            #ThreadManager.ensure_all_threads_killed()
             print("Press Enter to continue ...")
             input()
     else:
