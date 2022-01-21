@@ -11,7 +11,7 @@ License: MIT
 # NEW
 #### Now supports multiple images being dragged in to queue them up.
 #### Final masking shapes are now removed automatically if unnecessary (per side)
-### Now supports Forza Horizon 4!
+### Now supports `Forza Horizon 4`!
 ### `Python` and `Geometrize` are both no longer needed, see updated guides below!
 ### Want to support the tool with money? Donate to charity instead (https://www.charitywatch.org/top-rated-charities)
 
