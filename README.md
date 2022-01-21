@@ -108,5 +108,5 @@ Note: When you load these templates the shapes will be **grouped**, make sure yo
 - **Advanced Users:** Consider tweaking the profiles in the `settings` folder and share them with other users. See #faq on the Discord for more info.
 
 # Acknowledgements
-geometrize-lib - Sam Twidale (https://samcodes.co.uk/)
-Primitive library - Michael Fogleman (https://github.com/fogleman/primitive)
+- geometrize-lib - Sam Twidale (https://samcodes.co.uk/)
+- Primitive library - Michael Fogleman (https://github.com/fogleman/primitive)
