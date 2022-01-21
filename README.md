@@ -2,14 +2,17 @@
 ![](/imgs/ayylmao.png)
 ```
 Discord: A-Dawg#0001 (AE)
-Supports: Forza Horizon 5
-Offically: MS Store/XBOX PC App (latest version), Steam (latest version).
+Supports: Forza Horizon 4 and 5
+Offically: MS Store/XBOX PC App (latest versions), Steam (latest versions).
 Unofficially: Every version that isn't running on a console of via cloud gaming should work.
 License: MIT
 ```
 
 # NEW
-### `Geometrize` is no longer needed, see updated guides below!
+#### Now supports multiple images being dragged in to queue them up.
+#### Final masking shapes are now removed automatically if unnecessary (per side)
+### Now supports Forza Horizon 4!
+### `Python` and `Geometrize` are both no longer needed, see updated guides below!
 ### Want to support the tool with money? Donate to charity instead (https://www.charitywatch.org/top-rated-charities)
 
 # Info
@@ -18,30 +21,24 @@ Please ask for help on the discord
 - https://discord.gg/BJNFCxPKhu
 
 
-If you would like, you can contact me directly if I'm available on Discord
+If you **cannot get help** on the Discord server, you can contact me directly (if I'm available)
 - `A-Dawg#0001`
 
 ### What is this for?:
-Any image → Forza Horizon 5 (Vinyl Group)
+Any image → Forza Horizon 4 or 5 (Vinyl Group)
 
-### Does this work for the Steam version or the Microsoft Store version?
+### Does this work for the Steam versions or the Microsoft Store versions?
 It supports both! And it should work for older and future releases too thanks to pattern scanning.
 
 ### How does it work?:
-When you drag an image onto `drag_image_file_here.bat`; It will break the image down into shapes and store them in `.json` data files.
-Then you drag those `.json` data files onto `drage_geometry_json_here.bat`; It deserializes this `.json` and uses some math, reverse engineering and the Windows API to push these shapes into FH5 automagically.
+When you drag one or multiple images onto `forza-painter.exe`; It will break the image(s) down into shapes and store them in `.json` data files.
+Then you drag those `.json` data files onto `forza-painter.exe`; It deserializes this `.json` and uses some math, reverse engineering and the Windows API to push these shapes into FH5 automagically.
 
 # READ EVERYTHING BELOW BEFORE ASKING FOR HELP
 
 ## Requirements
-- python 3.8 or 3.9 (or later**\***) 64-bit (Make sure to tick `Add to PATH` during installation. Microsoft Store installation does this automatically.)
-- The below python packages (just install from the command line):
-**\****If you are using python 3.10 or later you have to install `psutil` from https://pypi.org/project/psutil-wheels/*
-```
-pip install psutil
-pip install pywin32
-pip install opencv-python
-```
+- Microsoft Visual C++ 2015 Redistributable (Download both x86 and x64):
+    - https://www.microsoft.com/en-us/download/details.aspx?id=53587
 
 # FAQ:
 - **Will this get me banned!?**
@@ -79,8 +76,6 @@ In the event of it failing on a new version I will revise the code.
 - **I have an error that I don't understand...**
 ```
 Check the requirements above.
-Ensure you have python 3.8 or later installed (make sure it is 64-bit) by running
-`python` from the command prompt. Check that you have installed the python packages (pip commands at top of readme)
 If you are still having problems, join the discord (top of readme) and ask for help in #support
 ```
 - **Can you make a version that just uses inputs to create the shapes?**
@@ -93,31 +88,24 @@ Just throw me [A-Dawg#0001 (AE)] a little credit.
 ```
 Join the discord (at top of readme) and ask for help in #support, failing that, contact me on Discord. A-Dawg#0001
 ```
-- **It just says: "Press any key to continue"**
-```
-Did an image pop up?
-    Yes - Is it still up?
-            Yes - Click it then press a key
-            No - Make sure you are in the Vinyl Group Editor, not the Livery Editor for example
-    No - You likely don't have python installed properly (Make sure to tick `Add to PATH` or just install from Microsoft Store)
-```
 
 # Basic usage guide:
 
 ## Making your template Vinyl Groups (reuse these)
 - Open Forza Horizon 5 and create a new Vinyl Group.
 - Just make one sphere and duplicate it for as many layers as you need. Color, size, scale, etc. **DO NOT MATTER**.
-    - Tip (Optional): You can make, say, 100 then select an existing shape, select highlight all, copy and insert these 100 over and over.
+    - Tip (Optional): You can make (cut/insert) ~100 then select an existing shape, select highlight all, copy and insert these 100 over and over.
     - Tip (Optional): Another trick is to save one vinyl group with 6 groups of 500 spheres. Simply load it and delete the ones you don't want (e.g. to reduce it down to 2000 shapes, delete 2 of them), then ungroup.
 - Save this as a template, as something identifiable, e.g. `forza-painter 3000 shapes`.
 
 Note: When you load these templates the shapes will be **grouped**, make sure you select them and **UNGROUP** before using (If you miss one it will tell you).
 
-## Using `forza-painter-geometrize` to generate your `.json` geometry (NEW):
-- Just drag an image onto `drag_image_file_here.bat` and it will start
-- It will generate a `.json` file with the same name and the same folder as the image you dragged in. (most profiles will also save one every 500 shapes separately)
+## Using `forza-painter` to generate your `.json` geometry (NEW):
+- Just drag one or multiple images onto `forza-painter.exe` and it will start
+- It will generate a `.json` file with the same name and the same folder as the image(s) you dragged in. (most profiles will also save one every 500 shapes separately)
 - You can close the window at any time when you are happy or if the shapes are complete.
-- **Advanced Users:** Consider tweaking the profiles in the `settings` folder and share them with other users.
+- If more than one image is dragged in, it will queue them, completing them one by one.
+- **Advanced Users:** Consider tweaking the profiles in the `settings` folder and share them with other users. See #faq on the Discord for more info.
 
 # Acknowledgements
 geometrize-lib - Sam Twidale (https://samcodes.co.uk/)
