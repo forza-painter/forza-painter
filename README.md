@@ -8,13 +8,17 @@ Unofficially: Every version that isn't running on a console of via cloud gaming 
 License: MIT
 ```
 
+## Want to support the tool with money? Donate to charity instead (https://www.charitywatch.org/top-rated-charities)
+# Consider showing your support for the tool:
+https://twitter.com/forza_support/status/1488175307391602690
+
+
 # NEW
 #### Mini-update: Lots of bug fixes, better FH4 support, unicode path support, better error messages, more? (I'm too tired to remember)
 ##### Now supports multiple images being dragged in to queue them up.
 ##### Final masking shapes are now removed automatically if unnecessary (per side)
 ### Now supports `Forza Horizon 4`!
 ### `Python` and `Geometrize` are both no longer needed, see updated guides below!
-### Want to support the tool with money? Donate to charity instead (https://www.charitywatch.org/top-rated-charities)
 
 # Info
 ### KNOWN ISSUES (None right now!):
