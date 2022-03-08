@@ -8,18 +8,17 @@ Unofficially: Every version that isn't running on a console of via cloud gaming 
 License: MIT
 ```
 
+## Please consider voicing your support for the tool.
+# https://twitter.com/forza_support/status/1488175307391602690
+
 # NEW
-#### Mini-update: Lots of bug fixes, better FH4 support, unicode path support, better error messages, more? (I'm too tired to remember)
-##### Now supports multiple images being dragged in to queue them up.
-##### Final masking shapes are now removed automatically if unnecessary (per side)
-### Now supports `Forza Horizon 4`!
-### `Python` and `Geometrize` are both no longer needed, see updated guides below!
+#### More versions of the games supported, many bug fixes, redundant shape checks, resume from json, more stable, dump and import vinyl groups and probably more that I forgot about.
+
 ### Want to support the tool with money? Donate to charity instead (https://www.charitywatch.org/top-rated-charities)
 
 # Info
-### KNOWN ISSUES (None right now!):
-Please ask for help on the discord
-- https://discord.gg/BJNFCxPKhu
+Please read #basic-tutorial and ask for help in #support on the discord
+- https://discord.gg/cJhsyXRC57
 
 ### Check out the #faq channel on the discord for awesome tips.
 **Ask for help on the Discord server first!**. If you **cannot get help** on the Discord server, you can contact me directly (if I'm available)
@@ -71,8 +70,7 @@ Most versions should work fine, but others may need tweaking.
 ```
 - **Will you update this to support newer versions?**
 ```
-It should automatically support newer versions providing the memory structures remain similar.
-In the event of it failing on a new version I will revise the code.
+It should automatically support newer versions.
 ```
 - **I have an error that I don't understand...**
 ```
@@ -87,12 +85,12 @@ Just throw me [A-Dawg#0001 (AE)] a little credit.
 ```
 - **My issue is not listed**
 ```
-Join the discord (at top of readme) and ask for help in #support, failing that, contact me on Discord. A-Dawg#0001
+Join the discord (at top of readme), check #basic-tutorial, #faq, and ask for help in #support
 ```
 
 # Basic usage guide:
 
-## Making your template Vinyl Groups (reuse these)
+## Making your template Vinyl Groups (reuse these):
 - Open Forza Horizon 5 and create a new Vinyl Group.
 - Just make one sphere and duplicate it for as many layers as you need. Color, size, scale, etc. **DO NOT MATTER**.
     - Tip (Optional): You can make (cut/insert) ~100 then select an existing shape, select highlight all, copy and insert these 100 over and over.
@@ -101,7 +99,7 @@ Join the discord (at top of readme) and ask for help in #support, failing that, 
 
 Note: When you load these templates the shapes will be **grouped**, make sure you select them and **UNGROUP** before using (If you miss one it will tell you).
 
-## Using `forza-painter` to generate your `.json` geometry (NEW):
+## Using `forza-painter` to generate your `.json` geometry:
 - Just drag one or multiple images onto `forza-painter.exe` and it will start
 - It will generate a `.json` file with the same name and the same folder as the image(s) you dragged in. (most profiles will also save one every 500 shapes separately)
 - You can close the window at any time when you are happy or if the shapes are complete.
