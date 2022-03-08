@@ -8,13 +8,13 @@ Unofficially: Every version that isn't running on a console of via cloud gaming 
 License: MIT
 ```
 
-## Please consider voicing your support for the tool.
-# https://twitter.com/forza_support/status/1488175307391602690
+### Want to support the tool with money? Donate to charity instead (https://www.charitywatch.org/top-rated-charities)
 
 # NEW
 #### More versions of the games supported, many bug fixes, redundant shape checks, resume from json, more stable, dump and import vinyl groups and probably more that I forgot about.
 
-### Want to support the tool with money? Donate to charity instead (https://www.charitywatch.org/top-rated-charities)
+## Please consider voicing your support for the tool.
+### https://twitter.com/forza_support/status/1488175307391602690
 
 # Info
 Please read #basic-tutorial and ask for help in #support on the discord
