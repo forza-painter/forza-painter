@@ -1,17 +1,35 @@
 # forza-painter
-![](/imgs/ayylmao.png)
+![](/imgs/yeahboiiiiiiiis_dad.png)
 ```
 Discord: A-Dawg#0001 (AE)
 Supports: Forza Horizon 4 and 5
 Offically: MS Store/XBOX PC App (latest versions), Steam (latest versions).
-Unofficially: Every version that isn't running on a console of via cloud gaming should work.
+Unofficially: Every version that isn't running on a console or via cloud gaming should work.
 License: MIT
 ```
 
 ### Want to support the tool with money? Donate to charity instead (https://www.charitywatch.org/top-rated-charities)
+## Consider helping out the children caught up in the Ukraine conflict. (https://www.savethechildren.org/us/where-we-work/ukraine)
 
-# NEW
-#### More versions of the games supported, many bug fixes, redundant shape checks, resume from json, more stable, dump and import vinyl groups and probably more that I forgot about.
+
+#### NEW
+- ❌ ~Vinyl group tree to allow nested group exports~ (Not yet finished)
+- ✅ MAJOR SPEED IMPROVEMENTS (only possible with advance tweaking previously)
+- ✅ Better vinyl group detection and handling
+- ✅ Better versioning code
+- ✅ Divide mutations across threads
+- ✅ Bottleneck checks and automatic balancing
+- ✅ REWORKED ALL PROFILES (only use the new ones please)
+- ✅ Redundancy check bat script (to do a redundant check on completed `.json`s)
+- ✅ Max shape size scales with resolution (bug fix for images looking better at lower res)
+- ✅ 1px border enforcement (No more adding a border yourself)
+- ✅ `.jsons` now save into a folder for neatness
+# RECENT
+- More versions of the games supported
+- Many bug fixes
+- Redundant shape checks
+- Resume from json
+- Dump and import vinyl groups (hand made ones)
 
 ## Please consider voicing your support for the tool.
 ### https://twitter.com/forza_support/status/1488175307391602690
@@ -21,14 +39,18 @@ Please read #basic-tutorial and ask for help in #support on the discord
 - https://discord.gg/cJhsyXRC57
 
 ### Check out the #faq channel on the discord for awesome tips.
-**Ask for help on the Discord server first!**. If you **cannot get help** on the Discord server, you can contact me directly (if I'm available)
-- `A-Dawg#0001`
+**Ask for help on the Discord server first!**. If you **cannot get help** on the Discord server.
+- `A-Dawg#0001` - I'm currently v. busy with life so ask in the Discord first please.
+
+## Don't have Discord?
+https://www.youtube.com/watch?v=2Wum11-IhfM
+Still, please consider getting Discord and joining as we have a growing library of handmade vinyl groups being shared.
 
 ### What is this for?:
-Any image → Forza Horizon 4 or 5 (Vinyl Group)
+Any image → Forza (Vinyl Group)
 
 ### Does this work for the Steam versions or the Microsoft Store versions?
-It supports both! And it should work for older and future releases too thanks to pattern scanning.
+It supports both! And it should work for older and future releases too thanks to some magic under the hood.
 
 ### How does it work?:
 When you drag one or multiple images onto `forza-painter.exe`; It will break the image(s) down into shapes and store them in `.json` data files.
@@ -101,10 +123,23 @@ Note: When you load these templates the shapes will be **grouped**, make sure yo
 
 ## Using `forza-painter` to generate your `.json` geometry:
 - Just drag one or multiple images onto `forza-painter.exe` and it will start
-- It will generate a `.json` file with the same name and the same folder as the image(s) you dragged in. (most profiles will also save one every 500 shapes separately)
+- It will generate a `.json` file in a folder with the same name and in same folder as the image(s) you dragged in. (most profiles will also save one every 500 shapes separately)
+    - e.g. `C:\My Pics\happy.jpg` → `C:\My Pics\happy\happy.json`
 - You can close the window at any time when you are happy or if the shapes are complete.
 - If more than one image is dragged in, it will queue them, completing them one by one.
 - **Advanced Users:** Consider tweaking the profiles in the `settings` folder and share them with other users. See #faq on the Discord for more info.
+
+## Importing your generated `.json` geometry files:
+- Open Forza and load your template with the correct shape count
+- Ungroup it
+- Drag the `.json` file onto `forza-painter.exe`
+
+## Importing hand made vinyls (shared by the community)
+- Join the Discord
+- Download a cool vinyl json (hand made in most cases by our community)
+- Follow the steps above for importing like normal!
+- Thank the awesome people in the Discord making these and sharing them!
+    - Make your own and dump them with `_dump_vinyl_group_by_running_this.bat` ;)
 
 # Acknowledgements
 - geometrize-lib - Sam Twidale (https://samcodes.co.uk/)
