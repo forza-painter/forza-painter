@@ -9,10 +9,13 @@ License: MIT
 ```
 
 ### Want to support the tool with money? Donate to charity instead (https://www.charitywatch.org/top-rated-charities)
-## Consider helping out the children caught up in the Ukraine conflict. (https://www.savethechildren.org/us/where-we-work/ukraine)
+## Consider helping out the children caught up in the Ukraine conflict.
+ - https://www.savethechildren.org/us/where-we-work/ukraine
+ - https://www.spleis.no/project/212318 (One of our members doing some awesome work)
 
 #### NEW
 - ❌ ~Vinyl group tree to allow nested group exports~ (Not yet finished)
+- ✅ Fixed a bug where it was not finding vinyl groups sometimes
 - ✅ Automatic cropping in most images
 - ✅ Smarter shape generation (Slight speed/quality bump)
 - ✅ Redundancy check is now multi-threaded
