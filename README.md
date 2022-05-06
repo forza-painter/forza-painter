@@ -11,9 +11,15 @@ License: MIT
 ### Want to support the tool with money? Donate to charity instead (https://www.charitywatch.org/top-rated-charities)
 ## Consider helping out the children caught up in the Ukraine conflict. (https://www.savethechildren.org/us/where-we-work/ukraine)
 
-
 #### NEW
 - ❌ ~Vinyl group tree to allow nested group exports~ (Not yet finished)
+- ✅ Automatic cropping in most images
+- ✅ Smarter shape generation (Slight speed/quality bump)
+- ✅ Redundancy check is now multi-threaded
+- 🐞 Fix bad handling of hard-to-fit shapes
+- 🐞 Fix redundant shapes pass not working
+- 🐞 Fix resume not working due to folder location
+#### RECENT
 - ✅ MAJOR SPEED IMPROVEMENTS (only possible with advance tweaking previously)
 - ✅ Better vinyl group detection and handling
 - ✅ Better versioning code
@@ -21,15 +27,15 @@ License: MIT
 - ✅ Bottleneck checks and automatic balancing
 - ✅ REWORKED ALL PROFILES (only use the new ones please)
 - ✅ Redundancy check bat script (to do a redundant check on completed `.json`s)
-- ✅ Max shape size scales with resolution (bug fix for images looking better at lower res)
 - ✅ 1px border enforcement (No more adding a border yourself)
 - ✅ `.jsons` now save into a folder for neatness
-# RECENT
-- More versions of the games supported
-- Many bug fixes
-- Redundant shape checks
-- Resume from json
-- Dump and import vinyl groups (hand made ones)
+- 🐞 Max shape size scales with resolution (bug fix for images looking better at lower res)
+#### OLDER
+- ✅ More versions of the games supported
+- ✅ Many bug fixes
+- ✅ Redundant shape checks
+- ✅ Resume from json
+- ✅ Dump and import vinyl groups (hand made ones)
 
 ## Please consider voicing your support for the tool.
 ### https://twitter.com/forza_support/status/1488175307391602690
