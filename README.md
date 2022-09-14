@@ -11,10 +11,13 @@ License: MIT
 ### Want to support the tool with money? Donate to charity instead (https://www.charitywatch.org/top-rated-charities)
 ## Consider helping out the children caught up in the Ukraine conflict.
  - https://www.savethechildren.org/us/where-we-work/ukraine
- - https://www.spleis.no/project/212318 (One of our members doing some awesome work)
+ - https://norskukrainastotte.com/ (One of our members doing some awesome work)
+ - https://ko-fi.com/norskukrainastotte (One of our members doing some awesome work)
 
 #### NEW
-- ❌ ~Vinyl group tree to allow nested group exports~ (Not yet finished)
+- 🐞 Fixed Steam version 1.507.426.0 not detecting
+
+#### RECENT
 - ✅ Fixed a bug where it was not finding vinyl groups sometimes
 - ✅ Automatic cropping in most images
 - ✅ Smarter shape generation (Slight speed/quality bump)
@@ -22,7 +25,6 @@ License: MIT
 - 🐞 Fix bad handling of hard-to-fit shapes
 - 🐞 Fix redundant shapes pass not working
 - 🐞 Fix resume not working due to folder location
-#### RECENT
 - ✅ MAJOR SPEED IMPROVEMENTS (only possible with advance tweaking previously)
 - ✅ Better vinyl group detection and handling
 - ✅ Better versioning code
