@@ -1,23 +1,24 @@
 # forza-painter
 ![](/imgs/yeahboiiiiiiiis_dad.png)
 ```
-Discord: A-Dawg#0001 (AE)
+Discord: the_adawg (AE)
 Supports: Forza Horizon 4 and 5
-Offically: MS Store/XBOX PC App (latest versions), Steam (latest versions).
+Offically: MS Store/XBOX PC App (latest versions), Steam (latest versions*)
 Unofficially: Every version that isn't running on a console or via cloud gaming should work.
 License: MIT
 ```
 
 ### Want to support the tool with money? Donate to charity instead (https://www.charitywatch.org/top-rated-charities)
-## Consider helping out the children caught up in the Ukraine conflict.
- - https://www.savethechildren.org/us/where-we-work/ukraine
- - https://norskukrainastotte.com/ (One of our members doing some awesome work)
- - https://ko-fi.com/norskukrainastotte (One of our members doing some awesome work)
+## There are some wild conflicts happening around the world right now; Stay safe and be kind to others.
 
 #### NEW
-- 🐞 Fixed Steam version 1.507.426.0 not detecting
+- 🐞 Added support for the new Microsoft Store and XBox versions (*Steam currently untested)
+- ✅ Replaced all of the old GUI with OpenGL + Dear ImGui
+- ✅ Replaced the old StretchBlt preview system
+- ✅ Some minor improvements
 
 #### RECENT
+- 🐞 Fixed Steam version 1.507.426.0 not detecting
 - ✅ Fixed a bug where it was not finding vinyl groups sometimes
 - ✅ Automatic cropping in most images
 - ✅ Smarter shape generation (Slight speed/quality bump)
@@ -51,7 +52,7 @@ Please read #basic-tutorial and ask for help in #support on the discord
 
 ### Check out the #faq channel on the discord for awesome tips.
 **Ask for help on the Discord server first!**. If you **cannot get help** on the Discord server.
-- `A-Dawg#0001` - I'm currently v. busy with life so ask in the Discord first please.
+- `the_adawg` - I'm currently v. busy with life so ask in the Discord first please.
 
 ## Don't have Discord?
 https://www.youtube.com/watch?v=2Wum11-IhfM
@@ -103,18 +104,12 @@ Most versions should work fine, but others may need tweaking.
 ```
 - **Will you update this to support newer versions?**
 ```
-It should automatically support newer versions.
+It should automatically support newer versions, but in the case it doesn't let me know on Discord.
 ```
 - **I have an error that I don't understand...**
 ```
 Check the requirements above.
 If you are still having problems, join the discord (top of readme) and ask for help in #support
-```
-- **Can you make a version that just uses inputs to create the shapes?**
-```
-I can, but I won't. I've open sourced this for a reason.
-Feel free to take it and make changes as you wish as permitted by the MIT license.
-Just throw me [A-Dawg#0001 (AE)] a little credit.
 ```
 - **My issue is not listed**
 ```
@@ -155,3 +150,4 @@ Note: When you load these templates the shapes will be **grouped**, make sure yo
 # Acknowledgements
 - geometrize-lib - Sam Twidale (https://samcodes.co.uk/)
 - Primitive library - Michael Fogleman (https://github.com/fogleman/primitive)
+- Dear ImGui - Omar Cornut (https://github.com/ocornut/imgui)
