@@ -3,7 +3,7 @@
 ```
 Discord: the_adawg (AE)
 Supports: Forza Horizon 4 and 5
-Offically: MS Store/XBOX PC App (latest versions), Steam (latest versions*)
+Offically: MS Store/XBOX PC App (latest versions), Steam (latest versions)
 Unofficially: Every version that isn't running on a console or via cloud gaming should work.
 License: MIT
 ```
@@ -12,7 +12,8 @@ License: MIT
 ## There are some wild conflicts happening around the world right now; Stay safe and be kind to others.
 
 #### NEW
-- 🐞 Added support for the new Microsoft Store and XBox versions (*Steam currently untested)
+- 🐞 Added support for the new Steam version (thanks to the kind game donation by `Arrow Skye`)
+- 🐞 Added support for the new Microsoft Store and XBox versions ~~(*Steam currently untested)~~
 - ✅ Replaced all of the old GUI with OpenGL + Dear ImGui
 - ✅ Replaced the old StretchBlt preview system
 - ✅ Some minor improvements
