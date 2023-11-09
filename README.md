@@ -12,13 +12,19 @@ License: MIT
 ## There are some wild conflicts happening around the world right now; Stay safe and be kind to others.
 
 #### NEW
+- ✅ Update codes now allow us to add support for new versions without needing to update `forza-painter`
+- ✅ Update codes are now downloaded automatically (or can be copied from others if you would prefer)
+- ✅ You can now pick between multiple found vinyl groups where the layer count makes it obvious which is correct
+- 🐞 Fixed crashing after image generation complete
+- 🐞 Fixed unable to pause because not a console application anymore (Pause button added)
+- 🐞 Added support for latest versions (Steam and MS Store/XBox)
+
+#### RECENT
 - 🐞 Added support for the new Steam version (thanks to the kind game donation by `Arrow Skye`)
 - 🐞 Added support for the new Microsoft Store and XBox versions ~~(*Steam currently untested)~~
 - ✅ Replaced all of the old GUI with OpenGL + Dear ImGui
 - ✅ Replaced the old StretchBlt preview system
 - ✅ Some minor improvements
-
-#### RECENT
 - 🐞 Fixed Steam version 1.507.426.0 not detecting
 - ✅ Fixed a bug where it was not finding vinyl groups sometimes
 - ✅ Automatic cropping in most images
